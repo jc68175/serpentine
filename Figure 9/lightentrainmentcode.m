@@ -1,0 +1,177 @@
+%% data for light entrainment 3 onoff 
+clear all
+
+load('light3onoff.mat')
+
+figure
+subplot(1,2,1)
+plot(TTM,sum(RES1))
+for i=0:6:size(G1,1);
+i=patch([i i+3 i+3 i], [8 8 -6 -6],'y');
+set(i,'FaceColor',[1 1 0.800000011920929]);
+set(i,'EdgeColor','none');
+end
+
+for  j=3:6:size(G1,1);
+j= patch([j j+3 j+3 j],[8 8 -6 -6], 'k');
+set(j,'FaceColor',[0.831372559070587 0.815686285495758 0.7843137383461]);
+set(j,'EdgeColor','none');
+end
+hold on 
+plot(TTM,sum(RES1))
+xlim([0 144])
+ylim([-0.4 0.4])
+xlabel('Time (Hours)');
+% Create ylabel
+ylabel('Fluoresescence Intensity (A.U.)');
+title('3-hour L/D')
+
+%periodogram for light entrainment 3onoff
+subplot(1,2,2)
+for i=1:size(res,1)
+relNums=res(i,:);
+[pxx,f] = periodogram(relNums,[],length(relNums),2);%length(relNums)
+%   pxx(1)=[];
+ L_pxx(i,:)=pxx/sum(pxx);%%normalize periodogram value or not
+
+
+end
+
+relNums=res(i,:);
+[pxx,f] = periodogram(relNums,[],length(relNums),2);%length(relNums)
+%    f(1)=[];
+
+
+
+
+mean_L_pxx=mean(L_pxx(:,1:size(L_pxx,2)));
+% mean_L_pxx(1)=[];
+relNums=res(i,:);
+[pxx,f] = periodogram(relNums,[],length(relNums),2);%length(relNums)
+plot(1./f,mean_L_pxx,'Linewidth', 3)
+xlabel('Period (Hours)','FontSize',15,'FontWeight','b')
+ylabel('Periodogram','FontSize',15,'FontWeight','b')
+set(gca,'fontsize',10,'FontWeight','b')
+set(findall(gcf,'type','hggroup'),'fontsize',10,'FontWeight','b')
+title('3-hour L/D periodogram')
+
+
+%% data for light entrainment 6 onoff 
+clear all
+load('light6onoff.mat')
+figure
+subplot(1,2,1)
+
+B=smooth(sum(res));
+for i=0:6:size(B,1);
+i=patch([i i+6 i+6 i], [1 1 -1 -1],'y');
+set(i,'FaceColor',[1 1 0.800000011920929]);
+set(i,'EdgeColor','none');
+end
+
+for  j=6:12:size(B,1);
+j= patch([j j+6 j+6 j],[1 1 -1 -1], 'k');
+set(j,'FaceColor',[0.831372559070587 0.815686285495758 0.7843137383461]);
+set(j,'EdgeColor','none');
+end
+
+
+
+hold on
+xlim([0 92])
+ylim([-0.70 0.70])
+B = B*2;
+plot(TTM,B);
+xlabel('Time (Hours)');
+% Create ylabel
+ylabel('Fluoresescence Intensity (A.U.)');
+title('6-hour L/D')
+
+subplot(1,2,2)
+for i=1:size(res,1)
+relNums=res(i,:);
+[pxx,f] = periodogram(relNums,[],length(relNums),2);%length(relNums)
+%   pxx(1)=[];
+ L_pxx(i,:)=pxx/sum(pxx);%%normalize periodogram value or not
+
+
+end
+
+relNums=res(i,:);
+[pxx,f] = periodogram(relNums,[],length(relNums),2);%length(relNums)
+%    f(1)=[];
+
+
+
+
+mean_L_pxx=mean(L_pxx(:,1:size(L_pxx,2)));
+% mean_L_pxx(1)=[];
+relNums=res(i,:);
+[pxx,f] = periodogram(relNums,[],length(relNums),2);%length(relNums)
+plot(1./f,mean_L_pxx,'Linewidth', 3)
+title('6-hour L/D periodogram')
+
+%% data for light entrainment 12 onoff 
+clear all
+
+load ('light12onoff')
+figure
+subplot(1,2,1)
+
+
+j=size(B1,1);
+TT=0:0.5:(j/2-0.5); % set time interval
+
+for  j=0:12:size(B1,1);
+j= patch([j j+12 j+12 j],[30 30 -10 -10], 'k');
+set(j,'FaceColor',[0.831372559070587 0.815686285495758 0.7843137383461]);
+set(j,'EdgeColor','none');
+end
+
+for i=12:24:size(B1,1);
+i=patch([i i+12 i+12 i], [30 30 -10 -10],'y');
+set(i,'FaceColor',[1 1 0.800000011920929]);
+set(i,'EdgeColor','none');
+end
+xlim([0 150])
+ylim([-0.02 0.015])
+hold on
+
+
+plot(TT,mean(B1'));
+xlabel('Time (Hours)','FontSize',30,'FontWeight','b')
+ylabel('Fluorescence Intensity (A.U.) ','FontSize',30,'FontWeight','b')
+title('12-hour L/D')
+
+
+for i=1:size(res,1)
+relNums=res(i,:);
+[pxx,f] = periodogram(relNums,[],length(relNums),2);%length(relNums)
+%   pxx(1)=[];
+ L_pxx(i,:)=pxx/sum(pxx);%%normalize periodogram value or not
+
+
+end
+
+relNums=res(i,:);
+[pxx,f] = periodogram(relNums,[],length(relNums),2);%length(relNums)
+%    f(1)=[];
+
+
+
+
+mean_L_pxx=mean(L_pxx(:,1:size(L_pxx,2)));
+% mean_L_pxx(1)=[];
+relNums=res(i,:);
+[pxx,f] = periodogram(relNums,[],length(relNums),2);%length(relNums)
+subplot(1,2,2)
+plot(1./f,mean_L_pxx,'Linewidth', 3)
+title('12-hour L/D periodogram')
+
+%% data for light entrainment 18 onoff 
+clear all
+
+load ('light18onoff')
+figure
+subplot(1,2,1)
+clear all
