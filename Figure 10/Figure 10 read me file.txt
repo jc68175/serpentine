@@ -1,0 +1,8 @@
+Figure 10 readme file
+
+
+Open nucleivelocitydata.mat
+Run nucleivelocity.m to obtain plot (a)
+
+Open histogramdata.mat
+Run historgram.m to obtain histogram (b)
