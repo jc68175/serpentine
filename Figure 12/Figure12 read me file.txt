@@ -1,0 +1,10 @@
+Figure 12 read me file
+
+
+Figure 12(a)
+Run detrendeddata.m
+Make sure to add appropriate files to file path
+
+
+Figure 12(b)
+Run exp_modelcyclesplot.m
