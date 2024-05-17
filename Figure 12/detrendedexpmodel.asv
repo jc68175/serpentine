@@ -1,0 +1,22 @@
+%%Plotting detrended fluorescence data for experimental and model data
+
+load("detrended data.mat")
+
+% plot top section of serpentine channel 
+res=dtrndanl2(p_top');
+[B1,window] = smoothdata(res,"movmean");
+plot(B1)
+tLo=0; tHi=10;
+tt=linspace(tLo,tHi,480);
+
+plot(tt,B1);
+hold
+
+clearvars -except p_mid p_top p_bottom
+res=dtrndanl2(p_mid');
+[B2,window] = smoothdata(res,"movmean");
+tLo=0; tHi=10;
+tt=linspace(tLo,tHi,480);
+
+plot(tt(70:480),B2(70:480));
+
