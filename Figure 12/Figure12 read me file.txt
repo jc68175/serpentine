@@ -4,6 +4,9 @@ Figure 12 read me file
 Figure 12(a)
 Run detrendeddata.m
 Make sure to add appropriate files to file path
+top.mat file for top section of serpentine channel
+mid.mat file for middle section of serpentine channel
+botfinal.mat for bottom section of serpentine channel
 
 
 Figure 12(b)
